@@ -1,4 +1,5 @@
 import math
+from icecream import ic
 
 def prime(num):
     if num < 2:
@@ -45,6 +46,8 @@ r = get_r(L)
 print (f"p={p}, q={q}")
 n = p*q
 print (f"n={n}\nr={r}\nL={L}\n")
+s = pow (r, -1, L)
+print (f"s={s}")
 
 
 message = str(input ("Enter message: "))
@@ -61,10 +64,6 @@ def encryption():
     print (f"Encrypted ASCII: {encrypted}")
         
 encryption()
-
-
-s = pow (r, -1, L)
-print (f"s={s}")
 
 def decryption():
     for char in encrypted:
