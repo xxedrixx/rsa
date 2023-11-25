@@ -45,18 +45,20 @@ L = math.lcm(p-1,q-1)
 r = get_r(L)
 print (f"p={p}, q={q}")
 n = p*q
-print (f"n={n}\nr={r}\nL={L}\n")
+print (f"n={n}\nr={r}\nL={L}")
 s = pow (r, -1, L)
-print (f"s={s}")
+print (f"s={s}\n")
 
 
 message = str(input ("Enter message: "))
-to_ascii = [ord(char) for char in message]
+to_ascii = [ord(char) for char in message]  # convert every character to ascii
 print (f"{message} to ascii: {to_ascii}")
 
+# empty array to store the encrypted and decrypted values
 encrypted = []
 decrypted = []
 
+# function to encrypt the message
 def encryption():
     for char in to_ascii:
         encr = (char**r) % n
@@ -65,6 +67,8 @@ def encryption():
         
 encryption()
 
+
+# function to decrypt the message
 def decryption():
     for char in encrypted:
         decr = (char**s) % n
@@ -73,5 +77,5 @@ def decryption():
     
 decryption()
     
-to_string = ''.join(chr(value) for value in decrypted)
+to_string = ''.join(chr(value) for value in decrypted) # convert every ascii to character
 print(f"Decrypted message: {to_string}")
